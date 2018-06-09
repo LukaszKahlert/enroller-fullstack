@@ -11,13 +11,12 @@
       <meetings-page :username="authenticatedUsername"></meetings-page>
     </div>
     <div v-else>
-      <button :class="isRegistering ? 'button-outline' :''"
-      @click="isRegisterimg = false">Zaloguj się
-      </button>
-      <button :class="!isRegistering ? 'button-outline' :''" >Zarejestruj się</button>
+      <button :class="isRegistering ? 'button-outline' :''" @click="isRegistering = false">Zaloguj się </button>
+      <button :class="!isRegistering ? 'button-outline' :''"
+              @click="isRegistering = true">Zarejestruj się</button>
       <login-form @login="login($event)"
         v-if="!isRegistering"></login-form>
-      <login-form @login="login($event)"
+      <login-form @login="register($event)"
       v-else></login-form>
     </div>
   </div>
